@@ -81,14 +81,17 @@
 
 .tile.present {
 	background-color: var(--tile-present-word-bg);
+	border-color: transparent;
 }
 
 .tile.absent {
 	background-color: var(--tile-absent-word-bg);
+	border-color: transparent;
 }
 
 .tile.correct {
 	background-color: var(--tile-correct-word-bg);
+	border-color: transparent;
 }
 
 .keyboard .key {
