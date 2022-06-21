@@ -1,0 +1,120 @@
+:root {
+	--app-bg: #121213;
+	--border-color: #48484a;
+	--tile-dimension: 3rem;
+	--tile-font-size: 1.8em;
+	--tile-correct-word-bg: #538d4e;
+	--tile-present-word-bg: #bf9f3b;
+	--tile-absent-word-bg: #939598;
+	--keyboard-key-color: white;
+	--keyboard-key-bg: #818384;
+}
+
+.App {
+	overflow: hidden;
+	text-align: center;
+	background-color: var(--app-bg);
+	min-height: 100vh;
+}
+
+.header {
+	font-size: 2.5em;
+	color: white;
+	padding: 0.5rem;
+	border-bottom: 1px solid var(--border-color);
+}
+
+.header p {
+	margin: 0;
+	font-weight: 500;
+}
+
+.game-container {
+	color: white;
+	margin: 3rem 0 5rem;
+}
+
+.game-container .row {
+	display: flex;
+	justify-content: center;
+}
+
+.row .tile {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: var(--tile-font-size);
+	border: 2px solid var(--border-color);
+	width: var(--tile-dimension);
+	height: var(--tile-dimension);
+	margin: 0.2rem;
+	font-weight: 700;
+	text-transform: capitalize;
+	user-select: none;
+}
+
+.row input {
+	opacity: 0;
+}
+
+.row form {
+	position: absolute;
+}
+
+.row.invalid-shake {
+	animation: invalid-shake 0.3s infinite;
+}
+
+.tile.present {
+	background-color: var(--tile-present-word-bg);
+}
+
+.tile.absent {
+	background-color: var(--tile-absent-word-bg);
+}
+
+.tile.correct {
+	background-color: var(--tile-correct-word-bg);
+}
+
+.keyboard {
+	margin: 5rem 0;
+	min-width: 50px;
+}
+
+.keyboard .key {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 30px;
+	height: 50px;
+	padding: 0.5rem;
+	border-radius: 8px;
+	font-size: 1em;
+	color: var(--keyboard-key-color);
+	background-color: var(--keyboard-key-bg);
+	margin: 0.1rem;
+}
+
+.key.enter,
+.key.backspace {
+	width: 60px;
+}
+
+@keyframes invalid-shake {
+	0% {
+		transform: translateX(0);
+	}
+	25% {
+		transform: translateX(5px);
+	}
+	50% {
+		transform: translateX(-5px);
+	}
+	75% {
+		transform: translateX(5px);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
