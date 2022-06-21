@@ -86,9 +86,8 @@
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	min-width: 30px;
-	height: 50px;
-	padding: 0.5rem;
+	min-width: 28px;
+	height: 45px;
 	border-radius: 8px;
 	font-size: 1em;
 	color: var(--keyboard-key-color);
