@@ -45,8 +45,8 @@ export const Row = forwardRef((props: RowProps, ref: Ref<RowHandler>) => {
 
 	const onBlur = () => {
 		setTimeout(() => {
-			if (inputRef.current && focusedRow) {
-				inputRef.current.focus();
+			if (focusedRow) {
+				inputRef.current?.focus();
 			}
 		}, 0);
 	};
@@ -83,8 +83,8 @@ export const Row = forwardRef((props: RowProps, ref: Ref<RowHandler>) => {
 	);
 
 	useEffect(() => {
-		if (focusedRow && inputRef.current) {
-			inputRef.current.focus();
+		if (focusedRow) {
+			inputRef.current?.focus();
 		}
 	}, [focusedRow]);
 

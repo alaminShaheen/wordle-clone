@@ -106,20 +106,22 @@ export default function GameContainer() {
 
 	return (
 		<div className="game-container">
-			{rowTexts.map((_, rowIndex) => (
-				<Row
-					ref={focusedRowIndex === rowIndex ? rowHandler : null}
-					key={rowIndex}
-					rowText={rowTexts[rowIndex] ?? ""}
-					rowIndex={rowIndex}
-					submitted={rowIndex < focusedRowIndex}
-					focusedRow={focusedRowIndex === rowIndex}
-					onRowChange={onRowTextChange}
-					originalWord={WORD}
-					onRowSubmit={onRowSubmit}
-					gameOver={gameOver}
-				/>
-			))}
+			<div className="rows">
+				{rowTexts.map((_, rowIndex) => (
+					<Row
+						ref={focusedRowIndex === rowIndex ? rowHandler : null}
+						key={rowIndex}
+						rowText={rowTexts[rowIndex] ?? ""}
+						rowIndex={rowIndex}
+						submitted={rowIndex < focusedRowIndex}
+						focusedRow={focusedRowIndex === rowIndex}
+						onRowChange={onRowTextChange}
+						originalWord={WORD}
+						onRowSubmit={onRowSubmit}
+						gameOver={gameOver}
+					/>
+				))}
+			</div>
 			<Keyboard onKeyClick={onKeyClick} />
 			<ToastContainer
 				position="top-center"

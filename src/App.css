@@ -1,26 +1,30 @@
 :root {
 	--app-bg: #121213;
 	--border-color: #48484a;
-	--tile-dimension: 3rem;
-	--tile-font-size: 1.8em;
+	--tile-dimension: 3.8rem;
+	--tile-font-size: 2.3em;
 	--tile-correct-word-bg: #538d4e;
 	--tile-present-word-bg: #bf9f3b;
 	--tile-absent-word-bg: #939598;
 	--keyboard-key-color: white;
 	--keyboard-key-bg: #818384;
+	--header-height: 65px;
 }
 
 .App {
 	overflow: hidden;
 	text-align: center;
 	background-color: var(--app-bg);
-	min-height: 100vh;
+	height: 100vh;
 }
 
 .header {
 	font-size: 2.5em;
 	color: white;
-	padding: 0.5rem;
+	height: var(--header-height);
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	border-bottom: 1px solid var(--border-color);
 }
 
@@ -30,11 +34,21 @@
 }
 
 .game-container {
-	color: white;
-	margin: 3rem 0 5rem;
+	height: calc(100% - var(--header-height));
+	display: flex;
+	flex-direction: column;
 }
 
-.game-container .row {
+.rows {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	align-items: center;
+	justify-content: center;
+	color: white;
+}
+
+.rows .row {
 	display: flex;
 	justify-content: center;
 }
@@ -75,11 +89,6 @@
 
 .tile.correct {
 	background-color: var(--tile-correct-word-bg);
-}
-
-.keyboard {
-	margin: 5rem 0;
-	min-width: 50px;
 }
 
 .keyboard .key {
