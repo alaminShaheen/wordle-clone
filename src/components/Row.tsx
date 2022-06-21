@@ -18,7 +18,6 @@ type RowProps = {
 	originalWord: string;
 	onRowSubmit: (rowIndex: number) => void;
 	gameOver: boolean;
-	focussedRowClass: string;
 };
 
 export type RowHandler = {

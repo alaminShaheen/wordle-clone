@@ -11,7 +11,6 @@ const WORD_SET = new Set(words);
 
 export default function GameContainer() {
 	const [focusedRowIndex, setFocusedRowIndex] = useState(0);
-	const [focussedRowClass, setFocussedRowClass] = useState("");
 	const [gameOver, setGameOver] = useState(false);
 	const [rowTexts, setRowTexts] = useState<string[]>(
 		Array(TOTAL_ROWS).fill("")
@@ -119,7 +118,6 @@ export default function GameContainer() {
 					key={rowIndex}
 					rowText={rowTexts[rowIndex] ?? ""}
 					rowIndex={rowIndex}
-					focussedRowClass={focussedRowClass}
 					submitted={rowIndex < focusedRowIndex}
 					focusedRow={focusedRowIndex === rowIndex}
 					onRowChange={onRowTextChange}
