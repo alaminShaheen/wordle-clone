@@ -7,7 +7,7 @@ import { Row, RowHandler } from "./Row";
 
 const TOTAL_ROWS = 6;
 const ROW_COLS = 5;
-const WORD_SET = new Set(words);
+const WORD_SET = new Set((words as string[]).map((word) => word.toUpperCase()));
 
 export default function GameContainer() {
 	const [focusedRowIndex, setFocusedRowIndex] = useState(0);
