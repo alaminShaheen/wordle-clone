@@ -16,12 +16,9 @@ export default function GameContainer() {
 		Array(TOTAL_ROWS).fill("")
 	);
 	const [WORD] = useState(
-		words[Math.floor(Math.random() * (words.length + 1))]
+		words[Math.floor(Math.random() * (words.length + 1))].toUpperCase()
 	);
 	const rowHandler = useRef<RowHandler>(null);
-
-	console.clear();
-	console.info(`----- ${WORD} -----`);
 
 	const onRowTextChange = useCallback((rowIndex: number, text: string) => {
 		if (rowIndex < TOTAL_ROWS) {
@@ -47,10 +44,6 @@ export default function GameContainer() {
 					return;
 				}
 
-				if (submittedText === WORD) {
-					handleWin();
-				}
-
 				if (!WORD_SET.has(submittedText)) {
 					toast.error("Invalid word!");
 					rowHandler.current?.toggleRowClass("invalid-shake");
@@ -61,11 +54,12 @@ export default function GameContainer() {
 					return;
 				}
 
-				if (focusedRowIndex + 1 < TOTAL_ROWS) {
-					setFocusedRowIndex((prev) => prev + 1);
-				} else {
+				if (submittedText === WORD) {
+					handleWin();
+				} else if (focusedRowIndex + 1 >= TOTAL_ROWS) {
 					handleLoss();
 				}
+				setFocusedRowIndex((prev) => prev + 1);
 			}
 			return;
 		},

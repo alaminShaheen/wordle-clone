@@ -40,7 +40,7 @@ export default function Keyboard(props: KeyboardProps) {
 					Enter
 				</button>
 				{"ZXCVBNM".split("").map((char) => (
-					<button onClick={mouseClick} className="key">
+					<button key={char} onClick={mouseClick} className="key">
 						{char}
 					</button>
 				))}
